@@ -1,0 +1,28 @@
+model:
+  name: 'point_net_1.pth'
+  model_path: ../models
+
+paths:
+  results_path: ../results
+  missclassified_path: ../misclassifieds
+
+dataset:
+  image_dataset: E:\Kaggle\alphabet\frames\images_checked\asl_dataset
+  npy_dataset: E:\Kaggle\alphabet\frames\points_scaled_noflip_checked\asl_dataset
+  dst_npy_path: E:\\Kaggle\\alphabet\\frames\\points_dataset\\asl_dataset
+  test_dataset: E:\Kaggle\alphabet\frames\custom3
+  augmentations: [rot, scale, noise]
+  to_discard: ['j', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  train_percent: 0.7
+  validation_percent: 0.3
+  test_percent: 0.0
+
+optimizer:
+  name: Adam
+  learning_rate: 0.0001
+  weight_decay: 0.00
+
+trainer:
+  num_epochs: 2
+  batch_size: 10
+  use_early_stopper: False
